@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nusa Global Export</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: #17201a;
+      background: #ffffff;
+      line-height: 1.6;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.96);
+      border-bottom: 1px solid #e8ece9;
+    }
+
+    .nav {
+      max-width: 1150px;
+      margin: auto;
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 21px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+
+    .logo span {
+      color: #197a45;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #26312a;
+      margin-left: 28px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      color: #197a45;
+    }
+
+    .hero {
+      max-width: 1150px;
+      margin: auto;
+      padding: 100px 24px 90px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 30px;
+      background: #edf7f1;
+      color: #197a45;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      font-size: clamp(42px, 6vw, 72px);
+      line-height: 1.05;
+      letter-spacing: -3px;
+      margin-bottom: 24px;
+    }
+
+    h1 span {
+      color: #197a45;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #667069;
+      max-width: 600px;
+      margin-bottom: 32px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 23px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .btn-primary {
+      background: #17201a;
+      color: white;
+    }
+
+    .btn-secondary {
+      border: 1px solid #d8dfda;
+      color: #17201a;
+      background: white;
+    }
+
+    .hero-card {
+      min-height: 390px;
+      border-radius: 28px;
+      background: #f1f5f2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 35px;
+    }
+
+    .globe {
+      width: 230px;
+      height: 230px;
+      border-radius: 50%;
+      background: #197a45;
+      position: relative;
+      box-shadow: 0 25px 60px rgba(25,122,69,0.20);
+    }
+
+    .globe:before,
+    .globe:after {
+      content: "";
+      position: absolute;
+      border: 2px solid rgba(255,255,255,0.45);
+      border-radius: 50%;
+    }
+
+    .globe:before {
+      width: 110px;
+      height: 226px;
+      left: 58px;
+      top: 0;
+    }
+
+    .globe:after {
+      width: 226px;
+      height: 90px;
+      left: 0;
+      top: 68px;
+    }
+
+    section {
+      padding: 85px 24px;
+    }
+
+    .container {
+      max-width: 1150px;
+      margin: auto;
+    }
+
+    .section-title {
+      max-width: 650px;
+      margin-bottom: 45px;
+    }
+
+    .section-title small {
+      color: #197a45;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    .section-title h2 {
+      font-size: 40px;
+      line-height: 1.15;
+      margin: 10px 0 15px;
+      letter-spacing: -1px;
+    }
+
+    .section-title p {
+      color: #69736d;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      border: 1px solid #e4e9e5;
+      border-radius: 18px;
+      padding: 30px;
+      background: white;
+    }
+
+    .icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: #edf7f1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #197a45;
+      font-size: 22px;
+      margin-bottom: 22px;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+
+    .card p {
+      color: #6c756f;
+      font-size: 15px;
+    }
+
+    .about {
+      background: #f6f8f6;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .about h2 {
+      font-size: 42px;
+      line-height: 1.15;
+      margin: 12px 0 20px;
+    }
+
+    .about p {
+      color: #68726b;
+      margin-bottom: 15px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
+    .stat {
+      background: white;
+      border-radius: 18px;
+      padding: 28px;
+      border: 1px solid #e5e9e6;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 34px;
+      color: #197a45;
+    }
+
+    .contact {
+      text-align: center;
+    }
+
+    .contact-box {
+      background: #17201a;
+      color: white;
+      border-radius: 25px;
+      padding: 65px 25px;
+    }
+
+    .contact-box h2 {
+      font-size: 42px;
+      margin-bottom: 15px;
+    }
+
+    .contact-box p {
+      color: #c7cec9;
+      margin-bottom: 28px;
+    }
+
+    .contact-box .btn {
+      background: white;
+      color: #17201a;
+    }
+
+    footer {
+      border-top: 1px solid #e5e9e6;
+      padding: 28px 24px;
+      color: #707972;
+      font-size: 13px;
+    }
+
+    .footer-inner {
+      max-width: 1150px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    @media (max-width: 800px) {
+      nav {
+        display: none;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 65px;
+      }
+
+      .hero-card {
+        min-height: 280px;
+      }
+
+      .globe {
+        width: 180px;
+        height: 180px;
+      }
+
+      .globe:before {
+        width: 86px;
+        height: 176px;
+        left: 47px;
+      }
+
+      .globe:after {
+        width: 176px;
+        height: 70px;
+        top: 55px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .section-title h2,
+      .about h2,
+      .contact-box h2 {
+        font-size: 32px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav">
+    <div class="logo">NUSA <span>GLOBAL EXPORT</span></div>
+
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section id="home">
+    <div class="hero">
+
+      <div>
+        <div class="badge">INDONESIAN EXPORT PARTNER</div>
+
+        <h1>
+          From Indonesian<br>
+          <span>to Global.</span>
+        </h1>
+
+        <p>
+          Connecting quality Indonesian products with international
+          markets through reliable sourcing, export solutions, and
+          long-term partnerships.
+        </p>
+
+        <div class="buttons">
+          <a class="btn btn-primary" href="#contact">Start a Partnership</a>
+          <a class="btn btn-secondary" href="#services">Explore Services</a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <div class="globe"></div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <section id="services">
+    <div class="container">
+
+      <div class="section-title">
+        <small>What We Do</small>
+        <h2>Export solutions built for global business.</h2>
+        <p>
+          We help businesses source and move Indonesian products
+          to international markets efficiently and professionally.
+        </p>
+      </div>
+
+      <div class="cards">
+
+        <div class="card">
+          <div class="icon">◆</div>
+          <h3>Product Sourcing</h3>
+          <p>
+            Finding quality products and trusted Indonesian suppliers
+            according to your market requirements.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="icon">↗</div>
+          <h3>Export Management</h3>
+          <p>
+            Supporting the export process from documentation and
+            coordination to international shipment.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="icon">◎</div>
+          <h3>Global Partnership</h3>
+          <p>
+            Building reliable long-term relationships between
+            Indonesian suppliers and international buyers.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <section id="about" class="about">
+    <div class="container">
+
+      <div class="about-grid">
+
+        <div>
+          <small style="color:#197a45;font-weight:800;letter-spacing:1.5px;">
+            ABOUT NUSA GLOBAL
+          </small>
+
+          <h2>
+            Bringing Indonesia closer to the world.
+          </h2>
+
+          <p>
+            Nusa Global Export is focused on creating trusted connections
+            between Indonesian products and international markets.
+          </p>
+
+          <p>
+            Our approach combines local knowledge, careful sourcing,
+            professional communication, and dependable export coordination.
+          </p>
+        </div>
+
+        <div class="stats">
+
+          <div class="stat">
+            <strong>01</strong>
+            Local Expertise
+          </div>
+
+          <div class="stat">
+            <strong>02</strong>
+            Global Reach
+          </div>
+
+          <div class="stat">
+            <strong>03</strong>
+            Reliable Process
+          </div>
+
+          <div class="stat">
+            <strong>04</strong>
+            Long-Term Partnership
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <section id="contact" class="contact">
+    <div class="container">
+
+      <div class="contact-box">
+
+        <h2>Let's work together.</h2>
+
+        <p>
+          Looking for Indonesian products or an export partner?
+          Let's start a conversation.
+        </p>
+
+        <a
+          class="btn"
+          href="mailto:info@nusaglobalexport.com"
+        >
+          Contact Us
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+
+<footer>
+  <div class="footer-inner">
+    <div>© 2026 Nusa Global Export. All rights reserved.</div>
+    <div>From Indonesian to Global.</div>
+  </div>
+</footer>
+
+</body>
+  </html>
